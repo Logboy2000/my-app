@@ -1,15 +1,28 @@
-import { Button } from "@/components/ui/button";
+'use client'
+
+import { Toaster } from '@/components/ui/sonner'
+
+import { Button } from '@/components/ui/button'
+import { toast } from 'sonner'
 
 export default function Home() {
-  return (
-    <>
-      <Button variant="outline">Button</Button>
-      <Button variant="default">Button</Button>
-      <Button variant="secondary">Button</Button>
-      <Button variant="ghost">Button</Button>
-      <Button variant="link">Button</Button>
-      <Button variant="destructive">Button</Button>
-      
-    </>
-  );
+	return (
+		<div className="flex flex-col items-center justify-center h-screen">
+			<Toaster />
+			<Button
+				variant="link"
+				onClick={() =>
+					toast('Toast', {
+						description: 'yipppeeeee',
+						action: {
+							label: 'ok',
+							onClick: () => {},
+						},
+					})
+				}
+			>
+				Show Toast
+			</Button>
+		</div>
+	)
 }
